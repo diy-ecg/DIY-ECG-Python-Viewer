@@ -1,0 +1,6 @@
+pyside6
+pyserial
+numpy
+pyqtgraph
+scipy
+psutil
