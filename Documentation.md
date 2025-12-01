@@ -4,7 +4,7 @@
 - **Arduino**: Samples A0 at 5 ms, serves frames on `'R'`.
 - **serial_port.py**: Opens serial, requests frames, CRC-16/IBM validation, unpacks samples/timestamps.
 - **data_stream.py**: Holds samples/timestamps in a NumPy ring buffer, applies IIR filters, adaptive mean, R-peak/BPM detection.
-- **main_pyqt.py**: Qt/pyqtgraph GUI with live plot, filter toggles, threshold line, BPM/polarity, CPU meter, save/export, pause/resume.
+- **diy-ecg-Viewer-V1.py**: Qt/pyqtgraph GUI with live plot, filter toggles, threshold line, BPM/polarity, CPU meter, save/export, pause/resume.
 
 ## Data Structures
 - **Frame format (Arduino → PC)**: `[uint8 count][count * uint16 samples][count * uint32 t_ms][uint16 crc16]` (little-endian, CRC-16/IBM poly 0xA001 init 0x0000, low byte first).
@@ -48,7 +48,7 @@
   - Menu: `Datei` → Save; `Info` → About (native menubar disabled to show inside window on macOS).
 
 ## Control Flow
-1) `main_pyqt.py` starts Qt app, builds UI, opens serial via `open_serial()`.
+1) `diy-ecg-Viewer-V1.py` starts Qt app, builds UI, opens serial via `open_serial()`.
 2) `poll_timer` fires: sends `'R'`, gets frame, pushes into `DataStream`.
 3) `plot_timer` fires: grabs last `PLOT_WINDOW` samples, updates pyqtgraph curves, scrolls x-axis, updates BPM/polarity if new beat detected.
 4) Filters/threshold toggles change `DataStream` behavior; pause clears buffers and halts polling until resumed.

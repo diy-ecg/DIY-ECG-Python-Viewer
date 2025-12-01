@@ -1,6 +1,6 @@
 # Qt Signals and Slots Overview
 
-This document lists the Qt signals and the slots they are connected to in `main_pyqt.py`.
+This document lists the Qt signals and the slots they are connected to in `diy-ecg-Viewer-V1.py`.
 
 ## Timers
 - `poll_timer.timeout` → `MainWindow.poll_serial`
