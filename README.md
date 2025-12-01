@@ -21,7 +21,6 @@ This repo streams ECG samples from an Arduino and visualizes them with a Python/
   ```
   - Auto-scans serial ports, requests frames every ~50 ms, plots last 800 samples with OpenGL acceleration.
   - UI: checkboxes for HP/Notch/TP/Adaptive mean, optional threshold line, BPM + polarity display, CPU load.
-- Minimal console loop (no GUI): `python main.py`
 
 ## Installation on any OS (ZIP or clone)
 1) Install Python 3.11+ if missing (from https://python.org). On Windows, ensure “Add Python to PATH” is checked.
@@ -36,7 +35,7 @@ This repo streams ECG samples from an Arduino and visualizes them with a Python/
    pip install -r requirements.txt
    ```
 5) Connect the Arduino (flashed with the provided sketch) via USB.
-6) Start the viewer: `python diy-ecg-Viewer-V1.py` (or `python main.py` for CLI test).
+6) Start the viewer: `python diy-ecg-Viewer-V1.py`
 
 ## Notes
 - Filters are tuned for ~200 Hz sampling. If you change the Arduino sampling interval, retune the filter cutoffs accordingly.
